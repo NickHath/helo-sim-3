@@ -8,6 +8,11 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use(cors());
+app.use(session({
+  secret: process.env.SECRET,
+  resave: false,
+  saveUninitialized: true
+}))
 
 massive(process.env.CONNECTION_STRING).then(db => app.set('db', db));
 
