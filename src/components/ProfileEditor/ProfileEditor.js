@@ -37,14 +37,15 @@ export default class ProfileEditor extends Component {
     return(
       <div className='editor'>
         <div className='inputs'>
-          <div className='field first_name_input'>
+          <div className='field'>
             <p>First Name</p>
             <input />
           </div>
-          <div className='field last_name_input'>
+          <div className='field'>
             <p>Last Name</p>
-            { inputFields }
+            <input />
           </div>
+          { inputFields }
         </div>
       </div>
     )

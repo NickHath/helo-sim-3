@@ -1,4 +1,5 @@
 import React from 'react';
+import './Inputs.css';
 
 const Inputs = (props) => {
   let options = props.options.map((opt, i) => {
@@ -6,7 +7,7 @@ const Inputs = (props) => {
   })
 
   return (
-    <div className='input_field'>
+    <div className='field'>
       <p>{props.field}</p>
       <select>
         <option disabled selected value> -- Select -- </option>
@@ -14,8 +15,6 @@ const Inputs = (props) => {
       </select>
     </div>
   )
-
-
 }
 
 export default Inputs;

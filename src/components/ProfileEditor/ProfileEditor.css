@@ -3,14 +3,45 @@
   background-color: #fff;
   box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.2);
   width: 80%;
-  height: 40vh;
+  height: 50vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
 }
 
 .inputs {
-  height: 90%;
-  width: 60%;
+  height: 92.5%;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
+  flex-wrap: wrap;
+}
+
+.field {
+  width: 22em;
+  height: 2em;
+  padding-bottom: 1.75em;
+  margin-bottom: 1.15em;
+}
+
+.field input, .field select {
+  width: 70%;
+  height: 100%;
+}
+
+input, select, textarea {
+  -ms-box-sizing:content-box;
+  -moz-box-sizing:content-box;
+  box-sizing:content-box;
+  -webkit-box-sizing:content-box;
+}
+
+.field input {
+  border: 1px solid #FF9770;
+}
+
+.field p {
+  margin-left: 20px;
+  margin-bottom: .5em;
 }
