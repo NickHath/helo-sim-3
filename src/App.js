@@ -24,7 +24,8 @@ class App extends Component {
 
           {/* Testing routes */}
           {/* <Route path ='/workshop' component={ NavBar } /> */}
-          <Route path='/workshop' component={ProfileEditor} />
+          {/* <Route path='/workshop' component={ProfileEditor} /> */}
+          <Route path='/workshop' component={Profile} />
         </Switch>
       </BrowserRouter>
     );
