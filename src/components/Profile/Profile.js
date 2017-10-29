@@ -14,8 +14,8 @@ export default class Profile extends Component {
             <p>Sample Name</p>
           </div>
           <div className='profile_buttons'>
-            <button className='update_button'>Update</button>
-            <button className='cancel_button'>Cancel</button>
+            <button className='dark_button'>Update</button>
+            <button className='light_button'>Cancel</button>
           </div>
         </div>
         <ProfileEditor />

@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
+import Login from './components/Login/Login';
 import Dashboard from './components/Dashboard/Dashboard';
 import Users from './components/Users/Users';
 import Friends from './components/Friends/Friends';
+
 import Profile from './components/Profile/Profile';
 import ProfileEditor from './components/ProfileEditor/ProfileEditor';
 
@@ -17,15 +19,10 @@ class App extends Component {
       <BrowserRouter>
         <Switch>
           <Route exact path='/' component={ Dashboard } />
-          <Route path='/users/:page' component={ Users } />
-          <Route path='/friends' component={ Friends } />
-          <Route path='/user/settings' component= { ProfileEditor } />          
+          <Route path='/auth' component={ Login } />
           <Route path='/profile' component={ Profile } />
 
-          {/* Testing routes */}
-          {/* <Route path ='/workshop' component={ NavBar } /> */}
-          {/* <Route path='/workshop' component={ProfileEditor} /> */}
-          {/* <Route path='/workshop' component={Profile} /> */}
+          {/* testing routes */}
         </Switch>
       </BrowserRouter>
     );
