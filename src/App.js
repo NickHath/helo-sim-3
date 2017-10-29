@@ -21,8 +21,6 @@ class App extends Component {
           <Route exact path='/' component={ Dashboard } />
           <Route path='/auth' component={ Login } />
           <Route path='/profile' component={ Profile } />
-
-          {/* testing routes */}
         </Switch>
       </BrowserRouter>
     );
