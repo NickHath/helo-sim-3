@@ -5,13 +5,15 @@ import searchIcon from '../../assets/search.png'
 
 const NavBar = ({page}) => (
   <div className='nav'>
-    <div className='logo_nav_icons'>
-      <h1>Helo</h1>
-      <img src={homeIcon}/>
-      <img src={searchIcon}/>
+    <div className="nav_contents">
+      <div className='logo_nav_icons'>
+        <h1>Helo</h1>
+        <img src={homeIcon}/>
+        <img src={searchIcon}/>
+      </div>
+      <div>Dashboard</div>
+      <div>Logout</div>
     </div>
-    <div>Dashboard</div>
-    <div>Logout</div>
   </div>
 );
 
