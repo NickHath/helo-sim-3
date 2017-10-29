@@ -11,7 +11,7 @@ const NavBar = ({page}) => (
         <img src={homeIcon}/>
         <img src={searchIcon}/>
       </div>
-      <div>Dashboard</div>
+      <div>{page}</div>
       <div>Logout</div>
     </div>
   </div>

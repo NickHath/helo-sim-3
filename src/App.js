@@ -5,7 +5,7 @@ import Dashboard from './components/Dashboard/Dashboard';
 import Users from './components/Users/Users';
 import Friends from './components/Friends/Friends';
 import Profile from './components/Profile/Profile';
-import Settings from './components/Settings/Settings';
+import ProfileEditor from './components/ProfileEditor/ProfileEditor';
 
 import NavBar from './components/NavBar/NavBar';
 
@@ -19,11 +19,12 @@ class App extends Component {
           <Route exact path='/' component={ Dashboard } />
           <Route path='/users/:page' component={ Users } />
           <Route path='/friends' component={ Friends } />
-          <Route path='/user/settings' component= { Settings } />          
+          <Route path='/user/settings' component= { ProfileEditor } />          
           <Route path='/user' component={ Profile } />
 
-          {/* Testing route */}
-          <Route path ='/workshop' component={ NavBar } />
+          {/* Testing routes */}
+          {/* <Route path ='/workshop' component={ NavBar } /> */}
+          <Route path='/workshop' component={ProfileEditor} />
         </Switch>
       </BrowserRouter>
     );
