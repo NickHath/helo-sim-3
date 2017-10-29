@@ -20,12 +20,12 @@ class App extends Component {
           <Route path='/users/:page' component={ Users } />
           <Route path='/friends' component={ Friends } />
           <Route path='/user/settings' component= { ProfileEditor } />          
-          <Route path='/user' component={ Profile } />
+          <Route path='/profile' component={ Profile } />
 
           {/* Testing routes */}
           {/* <Route path ='/workshop' component={ NavBar } /> */}
           {/* <Route path='/workshop' component={ProfileEditor} /> */}
-          <Route path='/workshop' component={Profile} />
+          {/* <Route path='/workshop' component={Profile} /> */}
         </Switch>
       </BrowserRouter>
     );
