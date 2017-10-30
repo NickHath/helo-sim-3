@@ -12,7 +12,7 @@ const express = require('express')
 
 // controllers
 const authController = require('./controllers/auth_controller');
-
+const friendController = require('./controllers/friend_controller');
 const app = express();
 
 // middleware
@@ -31,15 +31,15 @@ app.get('/api/auth/authenticated', authController.authenticateUser);
 app.post('/api/auth/logout', authController.logoutUser);
 
 //friend endpoints
-app.get('/api/auth/list', friend_controller.listFriend);
-app.post('/api/friend/add', friend_controller.addFriend);
-app.post('/api/friend/remove', friend_controller.removeFriend);
+app.get('/api/friend/list', friendController.listFriend);
+app.post('/api/friend/add', friendController.addFriend);
+app.post('/api/friend/remove', friendController.removeFriend);
 
 massive(process.env.CONNECTION_STRING).then(db => app.set('db', db));
 
 //passport intialized
-passport.use(passport.initialize());
-passport.use(passport.session());
+app.use(passport.initialize());
+app.use(passport.session());
 
 
 // auth0 strategy 
@@ -50,8 +50,8 @@ passport.use(new Auth0strategy({
   callbackURL: process.env.AUTH_CALLBACK
 },  function(accessToken, refreshToken, extraParams, profile, done){
   const db = app.get('db');
-  const userData = profil._json;
-  db.find_user([userData.identities[0].user_id]).then( user => {
+  const userData = profile._json;
+  db.find_session_user([userData.identities[0].user_id]).then( user => {
     if(user[0]){
       return done(null, user[0].id)
     } else {
@@ -66,7 +66,7 @@ passport.use(new Auth0strategy({
     }
   })
 }))
-passport.serializeUser( function(id, first, last, done) {
+passport.serializeUser( function(id, done) {
   done(null, id);
 })
 passport.deserializeUser( function(id, done) {
@@ -78,14 +78,14 @@ passport.deserializeUser( function(id, done) {
 app.get('/auth', passport.authenticate('auth0'))
 app.get('/auth/callback', passport.authenticate('auth0', {
   successRedirect: 'http:/localhost:3000/',
-  failureRedirect: '/auth'
+  failureRedirect: '/auth/login'
 })) 
 app.get("/auth/me", (req, res)=> {
   if(req.user){
     return res.status(200).send(req.user);
   }
   else {
-    return res.status(401).send('Need to log in')
+    return res.status(401).send('Need to login')
   }
 })
 app.get('/auth/logout', (req, res)=> {
